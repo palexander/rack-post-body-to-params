@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Niko Dittmann"]
-  s.date = "2013-02-05"
+  s.date = "2013-07-01"
   s.email = "mail+git@niko-dittmann.com"
   s.extra_rdoc_files = [
     "LICENSE",
@@ -29,22 +29,34 @@ Gem::Specification.new do |s|
   ]
   s.homepage = "http://github.com/niko/rack-post-body-to-params"
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.10"
+  s.rubygems_version = "2.0.2"
   s.summary = "A Rack middleware that parses the POST or PUT body for JSON or XML content to a Hash and puts it into the rack.request.form_hash. Most frameworks get the params hash from there. Uses ActiveSupport and the respective parsers for parsing. So you can set it up to use Nokogiri and YajL. Useful for example when writing JSON and XML API apps with Sinatra or Padrino."
 
   if s.respond_to? :specification_version then
-    s.specification_version = 3
+    s.specification_version = 4
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<rack-post-body-to-params>, [">= 0"])
+      s.add_runtime_dependency(%q<jeweler>, ["= 1.8.3"])
+      s.add_development_dependency(%q<shoulda>, [">= 0"])
       s.add_development_dependency(%q<shoulda>, [">= 0"])
       s.add_runtime_dependency(%q<activesupport>, [">= 2.3"])
+      s.add_runtime_dependency(%q<safe_yaml>, [">= 0"])
     else
+      s.add_dependency(%q<rack-post-body-to-params>, [">= 0"])
+      s.add_dependency(%q<jeweler>, ["= 1.8.3"])
+      s.add_dependency(%q<shoulda>, [">= 0"])
       s.add_dependency(%q<shoulda>, [">= 0"])
       s.add_dependency(%q<activesupport>, [">= 2.3"])
+      s.add_dependency(%q<safe_yaml>, [">= 0"])
     end
   else
+    s.add_dependency(%q<rack-post-body-to-params>, [">= 0"])
+    s.add_dependency(%q<jeweler>, ["= 1.8.3"])
+    s.add_dependency(%q<shoulda>, [">= 0"])
     s.add_dependency(%q<shoulda>, [">= 0"])
     s.add_dependency(%q<activesupport>, [">= 2.3"])
+    s.add_dependency(%q<safe_yaml>, [">= 0"])
   end
 end
 
